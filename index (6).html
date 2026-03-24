@@ -1,0 +1,985 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Partner - Your Digital Growth Partner</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            overflow-x: hidden;
+            background: #0a0a0a;
+        }
+
+        /* Gradient Backgrounds */
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .gradient-bg-alt {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .gradient-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10,10,10,0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(255,255,255,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d4ff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #00d4ff;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(135deg, #00d4ff, #ff00ff);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: #ffffff !important;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37,211,102,0.6);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #0a0a2e 0%, #16213e 50%, #0f0f23 100%);
+            z-index: -1;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #00d4ff, #ff00ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease;
+            text-shadow: 0 0 30px rgba(0,212,255,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease 0.2s both;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            color: #ffffff !important;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            animation: fadeInUp 1s ease 0.4s both;
+            box-shadow: 0 10px 30px rgba(255,107,107,0.6);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255,107,107,0.8);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #00d4ff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(0,212,255,0.5);
+        }
+
+        /* About Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #ffffff;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,212,255,0.4);
+            border-color: #00d4ff;
+        }
+
+        .feature-card h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #00d4ff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            text-shadow: none;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            padding: 2.5rem;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+            color: #ffffff;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #00d4ff, #ff00ff);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 40px 80px rgba(0,212,255,0.5);
+            border-color: #00d4ff;
+        }
+
+        .service-card h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #00d4ff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            text-shadow: none;
+        }
+
+        .resume-highlight {
+            background: linear-gradient(145deg, rgba(255,107,107,0.2) 0%, rgba(254,202,87,0.15) 100%) !important;
+            border-color: #ff6b6b !important;
+        }
+
+        .resume-highlight::before {
+            background: linear-gradient(135deg, #ff6b6b, #feca57) !important;
+        }
+
+        .resume-highlight .service-icon {
+            background: linear-gradient(135deg, #ff6b6b, #feca57) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+        }
+
+        /* Resume Details Section */
+        .resume-details {
+            background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f0f23 100%);
+            color: #ffffff;
+            margin: 3rem 0;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .details-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .detail-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .detail-item:hover {
+            background: rgba(0,212,255,0.2);
+            border-color: #00d4ff;
+            transform: translateX(10px);
+        }
+
+        .detail-item strong {
+            color: #00d4ff;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 20px 40px rgba(0,212,255,0.4);
+            border-color: #00d4ff;
+        }
+
+        .contact-item h4 {
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-item a {
+            color: #00d4ff !important;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #ff00ff !important;
+            text-shadow: 0 0 10px rgba(255,0,255,0.5);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #00d4ff, #ff00ff);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            background: rgba(255,255,255,0.1);
+            color: #ffffff;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 0 3px rgba(0,212,255,0.3);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00d4ff, #ff00ff);
+            color: #ffffff !important;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(0,212,255,0.6);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .checkbox-group label {
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Login Form */
+        .login-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            margin-top: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .login-form h3 {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Floating WhatsApp */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 30px rgba(37,211,102,0.6);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(37,211,102,0.8);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .whatsapp-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">My Web Partner</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="https://wa.me/919553628614?text=Hi%20I%20am%20interested%20in%20your%20services" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Chat Now
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Your Digital Growth Partner</h1>
+            <p>We create stunning websites, provide reliable hosting, and design professional resumes. 
+🚀 Fast delivery | 💰 Affordable pricing | 🔒 Trusted service</p>
+            <a href="#contact" class="cta-btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Empowering Your Digital Journey</h3>
+                    <p>At My Web Partner, we specialize in creating modern, responsive websites and professional resumes tailored for small businesses, local shops, students, and employees. Our mission is to make your online presence as impactful as your real-world ambitions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>100% Secure</h3>
+                    <p>Enterprise-grade security for your websites and data. Peace of mind guaranteed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock customer support. We're here whenever you need us.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Trusted by 1000+</h3>
+                    <p>Serving small businesses, shops, students, and professionals with proven results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section gradient-bg">
+        <div class="container">
+           <h2 class="section-title" style="
+color: #ffffff;
+-webkit-text-fill-color: #ffffff;
+background: none;
+text-shadow: 0 0 10px rgba(0,212,255,0.7);
+">
+Our Premium Services
+</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Website Creation</h3>
+                    <p>Modern, responsive websites designed specifically for small businesses and shops. Get online with a professional presence that converts visitors into customers.</p>
+                    <a href="#contact" class="btn-primary" style="background: linear-gradient(135deg, #25D366, #128C7E); margin-top: 1rem; display: inline-block; width: auto; padding: 0.8rem 2rem;">Get Quote</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Website Maintenance</h3>
+                    <p>Ongoing maintenance, updates, and performance optimization to keep your site running smoothly 24/7.</p>
+                    <a href="#contact" class="btn-primary" style="background: linear-gradient(135deg, #25D366, #128C7E); margin-top: 1rem; display: inline-block; width: auto; padding: 0.8rem 2rem;">Get Quote</a>
+                </div>
+                <div class="service-card resume-highlight">
+                    <div class="service-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Professional Resume Creation</h3>
+                    <p>Professional resumes and CVs designed for students and employees. Stand out to employers with our modern, ATS-friendly resume designs.</p>
+                    <div style="background: rgba(255,255,255,0.15); padding: 1rem; border-radius: 10px; margin-top: 1rem; font-size: 0.9rem; color: #ffffff;">
+                        👉 Those who needs resume contact us with the details
+                    </div>
+                    <a href="#contact" class="btn-primary" style="background: linear-gradient(135deg, #ff6b6b, #feca57); margin-top: 1rem; display: inline-block; width: auto; padding: 0.8rem 2rem;">Order Resume</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Premium Hosting</h3>
+                    <p>Reliable, fast, and secure hosting solutions optimized for your website. 99.9% uptime guarantee with 24/7 monitoring and support.</p>
+                    <a href="#contact" class="btn-primary" style="background: linear-gradient(135deg, #25D366, #128C7E); margin-top: 1rem; display: inline-block; width: auto; padding: 0.8rem 2rem;">Get Hosting</a>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="section">
+<div class="container">
+<h2 class="section-title">Client Reviews</h2>
+
+<!-- Review Form -->
+<div class="service-card" style="margin-bottom:30px;">
+<h3>Give Your Rating ⭐</h3>
+
+<input type="text" id="reviewName" placeholder="Your Name" style="width:100%;padding:10px;margin:10px 0;">
+<select id="reviewRating" style="width:100%;padding:10px;margin:10px 0;">
+<option value="5">⭐⭐⭐⭐⭐</option>
+<option value="4">⭐⭐⭐⭐</option>
+<option value="3">⭐⭐⭐</option>
+</select>
+<textarea id="reviewText" placeholder="Write your review..." style="width:100%;padding:10px;margin:10px 0;"></textarea>
+
+<button onclick="addReview()" class="btn-primary">Submit Review</button>
+</div>
+
+<!-- Reviews List -->
+<div id="reviewList" class="services-grid">
+
+<div class="service-card">
+⭐⭐⭐⭐⭐
+<p>"Very professional website design. Fast delivery!"</p>
+<h4>- Ramesh</h4>
+</div>
+
+<div class="service-card">
+⭐⭐⭐⭐
+<p>"Affordable and good service."</p>
+<h4>- Suresh</h4>
+</div>
+
+</div>
+
+<!-- View More Button -->
+<div style="text-align:center; margin-top:20px;">
+<button onclick="showMore()" class="btn-primary">View More Reviews</button>
+</div>
+
+</div>
+</section>
+</section>
+<section class="section gradient-bg-alt">
+<div class="container">
+<h2 class="section-title">Our Work</h2>
+
+<div class="services-grid">
+
+<div class="service-card">
+<h3>Business Website</h3>
+<p>Modern website for local shop</p><br>
+<a href="#" class="btn-primary">View Demo</a>
+</div>
+
+<div class="service-card">
+<h3>Resume Design</h3>
+<p>Professional resume for student</p><br>
+<a href="#" class="btn-primary">View Sample</a>
+</div>
+
+<div class="service-card">
+<h3>Company Website</h3>
+<p>Corporate business website</p><br>
+<a href="#" class="btn-primary">View Demo</a>
+</div>
+
+</div>
+</div>
+</section>
+
+    <!-- Resume Details Section -->
+    <section class="resume-details section">
+        <div class="container">
+            <h2 class="section-title" style="color: #ffffff;">Resume Creation - Required Details</h2>
+            <div style="font-size: 1.1rem; margin-bottom: 1rem; font-weight: 500; color: #00d4ff;">
+                👉 Those who needs resume contact us with the details below:
+            </div>
+            <div class="details-list">
+                <div class="detail-item">
+                    <i class="fas fa-user" style="margin-right: 0.5rem; color: #ff6b6b;"></i>
+                    <strong>Full Name</strong>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-envelope" style="margin-right: 0.5rem; color: #ff6b6b;"></i>
+                    <strong>Email & Phone Number</strong>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-graduation-cap" style="margin-right: 0.5rem; color: #ff6b6b;"></i>
+                    <strong>Education Details</strong>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-star" style="margin-right: 0.5rem; color: #ff6b6b;"></i>
+                    <strong>Skills</strong>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-briefcase" style="margin-right: 0.5rem; color: #ff6b6b;"></i>
+                    <strong>Experience (if any)</strong>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-certificate" style="margin-right: 0.5rem; color: #ff6b6b;"></i>
+                    <strong>Certifications / Projects</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+<div style="margin-top:20px; font-weight:600; color:#00d4ff;">
+</div>
+                            <div>
+                                <h4>Phone</h4>
+                                <a href="tel:+919553628614">+91 95536 28614</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:mywebpartner1916@gmail.com">mywebpartner1916@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon" style="background: linear-gradient(135deg, #25D366, #128C7E);">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <a href="https://wa.me/919553628614?text=Hi%20I%20am%20interested%20in%20your%20services" target="_blank">Chat Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <!-- Contact Form -->
+                    <form id="contactForm" action="https://formspree.io/f/xqorwpdw" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" name="name" required placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label>Google Email</label>
+                                <input type="email" name="email" required placeholder="yourname@gmail.com">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="5" name="message" placeholder="Tell us about your project..." required></textarea>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">I agree to the Terms & Conditions</label>
+                        </div>
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+
+                    <!-- Client Login -->
+                    <div class="login-form">
+                        <h3>Client Login</h3>
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" id="loginName" required placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label>Google Email</label>
+                                <input type="email" id="loginEmail" required placeholder="yourname@gmail.com">
+                            </div>
+                            <button type="submit" class="btn-primary">Login with Email</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919553628614?text=Hi%20I%20am%20interested%20in%20your%20services" class="floating-whatsapp" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(10,10,10,0.98)';
+                navbar.style.boxShadow = '0 5px 30px rgba(255,255,255,0.2)';
+            } else {
+                navbar.style.background = 'rgba(10,10,10,0.95)';
+                navbar.style.boxShadow = '0 2px 20px rgba(255,255,255,0.1)';
+            }
+        });
+
+        // Client Login Form
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('loginName').value;
+            const email = document.getElementById('loginEmail').value;
+            
+            alert('Login Successful! 🎉\nRedirecting to WhatsApp...');
+            
+            const whatsappMessage = `Hi, this is ${name} (${email}). I am logging into my client account.`;
+            const whatsappUrl = `https://wa.me/919553628614?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // Form submission success message
+        document.getElementById('contactForm').addEventListener('submit', function() {
+            setTimeout(() => {
+                alert('Thank you! 🚀 Your message has been sent. We will contact you soon.');
+            }, 1000);
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.feature-card, .service-card, .contact-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
